@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "ms-template-python"
+version = "0.1.0"
+description = ""
+authors = ["Vyacheslav1557 <slavabirin1@yandex.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+protobuf = "^4.21.6"
+grpcio = "^1.62.1"
+python-dotenv = "^1.0.1"
+pydantic-settings = "^2.2.1"
+grpc-interceptor = "^0.15.4"
+
+[tool.poetry.group.dev.dependencies]
+
+[tool.poetry.group.test.dependencies]
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
