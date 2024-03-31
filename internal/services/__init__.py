@@ -1,1 +1,1 @@
-from .service import *
+from .pandoc import *

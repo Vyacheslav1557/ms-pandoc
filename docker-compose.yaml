@@ -1,5 +1,10 @@
 services:
   app:
     build: .
+    restart: always
     ports:
-      - "8000:7600"
+      - "7600:7600"
+    environment:
+      - ENV=dev
+      - PORT=7600
+      - HOST=0.0.0.0

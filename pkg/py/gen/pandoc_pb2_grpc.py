@@ -2,10 +2,10 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import pkg.py.gen.service_pb2 as service__pb2
+import pkg.py.gen.pandoc_pb2 as pandoc__pb2
 
 
-class SampleServiceStub(object):
+class PandocServiceStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -14,42 +14,42 @@ class SampleServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.Hello = channel.unary_unary(
-                '/sample.SampleService/Hello',
-                request_serializer=service__pb2.HelloRequest.SerializeToString,
-                response_deserializer=service__pb2.HelloResponse.FromString,
+        self.ConvertText = channel.unary_unary(
+                '/pandoc.PandocService/ConvertText',
+                request_serializer=pandoc__pb2.ConvertTextRequest.SerializeToString,
+                response_deserializer=pandoc__pb2.ConvertTextResponse.FromString,
                 )
 
 
-class SampleServiceServicer(object):
+class PandocServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def Hello(self, request, context):
+    def ConvertText(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
 
-def add_SampleServiceServicer_to_server(servicer, server):
+def add_PandocServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'Hello': grpc.unary_unary_rpc_method_handler(
-                    servicer.Hello,
-                    request_deserializer=service__pb2.HelloRequest.FromString,
-                    response_serializer=service__pb2.HelloResponse.SerializeToString,
+            'ConvertText': grpc.unary_unary_rpc_method_handler(
+                    servicer.ConvertText,
+                    request_deserializer=pandoc__pb2.ConvertTextRequest.FromString,
+                    response_serializer=pandoc__pb2.ConvertTextResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'sample.SampleService', rpc_method_handlers)
+            'pandoc.PandocService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class SampleService(object):
+class PandocService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def Hello(request,
+    def ConvertText(request,
             target,
             options=(),
             channel_credentials=None,
@@ -59,8 +59,8 @@ class SampleService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/sample.SampleService/Hello',
-            service__pb2.HelloRequest.SerializeToString,
-            service__pb2.HelloResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/pandoc.PandocService/ConvertText',
+            pandoc__pb2.ConvertTextRequest.SerializeToString,
+            pandoc__pb2.ConvertTextResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

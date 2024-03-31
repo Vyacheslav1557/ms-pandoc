@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package pandoc;
+
+service PandocService {
+  rpc ConvertText(ConvertTextRequest) returns (ConvertTextResponse);
+}
+
+message ConvertTextRequest{
+  string Source = 1;
+  string From = 2;
+  string To = 3;
+}
+
+message ConvertTextResponse{
+  string Message = 1;
+  string Result = 2;
+}

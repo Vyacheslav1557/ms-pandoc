@@ -3,10 +3,10 @@ from abc import ABC, abstractmethod
 import grpc.aio
 from grpc_interceptor.exception_to_status import AsyncExceptionToStatusInterceptor
 
-from pkg.py.gen import service_pb2_grpc
+from pkg.py.gen import pandoc_pb2_grpc
 from ..config import Config
 from ..logger import get_logger
-from ..transport import SampleService, RequestLoggingInterceptor
+from ..transport import PandocService, RequestLoggingInterceptor
 
 
 class AbstractApp(ABC):
@@ -24,8 +24,8 @@ class App(AbstractApp):
         self.server = grpc.aio.server(
             interceptors=[AsyncExceptionToStatusInterceptor(), RequestLoggingInterceptor()]
         )
-        service_pb2_grpc.add_SampleServiceServicer_to_server(
-            SampleService(), self.server
+        pandoc_pb2_grpc.add_PandocServiceServicer_to_server(
+            PandocService(), self.server
         )
         address = f"{Config().HOST}:{Config().PORT}"
         logger = get_logger()

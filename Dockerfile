@@ -18,4 +18,4 @@ COPY . /app/
 COPY --from=builder /app/.venv /app/.venv
 ENV PATH="/app/.venv/bin:$PATH"
 
-CMD ["/app/.venv/bin/python", "app/cmd/ms-template-python/main.py"]
+CMD ["/app/.venv/bin/python", "app/cmd/ms-pandoc/main.py"]

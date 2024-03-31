@@ -2,7 +2,7 @@ version: v1
 managed:
   enabled: true
   go_package_prefix:
-    default: github.com/Vyacheslav1557/ms-template-python/pkg/go/gen
+    default: github.com/Vyacheslav1557/ms-pandoc/pkg/go/gen
 plugins:
   - name: go
     out: pkg/go/gen

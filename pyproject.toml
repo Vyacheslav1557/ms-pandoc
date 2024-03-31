@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "ms-template-python"
+name = "ms-pandoc"
 version = "0.1.0"
 description = ""
 authors = ["Vyacheslav1557 <slavabirin1@yandex.ru>"]
@@ -12,6 +12,8 @@ grpcio = "^1.62.1"
 python-dotenv = "^1.0.1"
 pydantic-settings = "^2.2.1"
 grpc-interceptor = "^0.15.4"
+pypandoc-binary = "^1.13"
+pypandoc = "^1.13"
 
 [tool.poetry.group.dev.dependencies]
 
